@@ -1,0 +1,29 @@
+<div class="py-1 mt-2 overflow-hidden border border-gray-300 rounded-md">
+  <div class="flex">
+    <select
+      name="status"
+      class="w-40 px-4 bg-white border-r border-gray-300 focus:outline-none"
+      [(ngModel)]="item.status"
+    >
+      <option
+        class="py-2"
+        *ngFor="let status of availableStatuses"
+        (value)="(status)"
+      >
+        {{ status }}
+      </option>
+    </select>
+
+    <div
+      class="flex-grow px-4 py-2 focus:outline-none"
+      (click)="changeExpand()"
+    >
+      {{ item.title }}
+    </div>
+  </div>
+
+  <div *ngIf="isExpand" class="flex flex-col px-2 py-3 border-t">
+    <span class="text-xs text-gray-500">Description</span>
+    <p>{{ item.description }}</p>
+  </div>
+</div>
