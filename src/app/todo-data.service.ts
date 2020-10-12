@@ -23,7 +23,6 @@ export class TodoDataService {
   }
 
   async loadData() {
-    console.log(key)
     const data = await JSON.parse(localStorage.getItem(key)) as Array<TodoItem> || []
     this.todoItems = [...data];
   }
